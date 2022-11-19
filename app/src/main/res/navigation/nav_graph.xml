@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_welcomeFragment_to_patientRegistrationFragment"
             app:destination="@id/patient_registration_fragment" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_loginFragment"
+            app:destination="@id/login_fragment" />
     </fragment>
 
     <fragment
@@ -49,9 +52,9 @@
         android:name="com.healthteam17.recordhealth.LoginFragment"
         android:label="Login"
         tools:layout="@layout/fragment_login">
-    <action
-        android:id="@+id/action_loginFragment_to_dashboardFragment"
-        app:destination="@id/dashboard_fragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_dashboardFragment"
+            app:destination="@id/dashboard_fragment" />
     </fragment>
 
     <fragment
@@ -59,9 +62,9 @@
         android:name="com.healthteam17.recordhealth.DashboardFragment"
         android:label="Dashboard"
         tools:layout="@layout/fragment_dashboard">
-    <action
-        android:id="@+id/action_dashboardFragment_to_welcomeFragment"
-        app:destination="@id/welcome_fragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_welcomeFragment"
+            app:destination="@id/welcome_fragment" />
     </fragment>
 
 </navigation>
