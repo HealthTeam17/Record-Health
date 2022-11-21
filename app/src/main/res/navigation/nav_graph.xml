@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/welcome_fragment">
+
+    <fragment
+        android:id="@+id/welcome_fragment"
+        android:name="com.healthteam17.recordhealth.WelcomeFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_welcome">
+        <action
+            android:id="@+id/action_welcomeFragment_to_adminRegistrationFragment"
+            app:destination="@id/admin_registration_fragment" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_patientRegistrationFragment"
+            app:destination="@id/patient_registration_fragment" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_loginFragment"
+            app:destination="@id/login_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/admin_registration_fragment"
+        android:name="com.healthteam17.recordhealth.AdminRegistrationFragment"
+        android:label="Admin Registration"
+        tools:layout="@layout/fragment_admin_registration">
+        <action
+            android:id="@+id/action_adminRegistrationFragment_to_welcomeFragment"
+            app:destination="@id/welcome_fragment" />
+        <action
+            android:id="@+id/action_adminRegistrationFragment_to_loginRegistrationFragment"
+            app:destination="@id/login_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/patient_registration_fragment"
+        android:name="com.healthteam17.recordhealth.PatientRegistrationFragment"
+        android:label="Patient Registration"
+        tools:layout="@layout/fragment_patient_registration">
+        <action
+            android:id="@+id/action_patientRegistrationFragment_to_welcomeFragment"
+            app:destination="@id/welcome_fragment" />
+        <action
+            android:id="@+id/action_patientRegistrationFragment_to_loginRegistrationFragment"
+            app:destination="@id/login_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/login_fragment"
+        android:name="com.healthteam17.recordhealth.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_dashboardFragment"
+            app:destination="@id/dashboard_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/dashboard_fragment"
+        android:name="com.healthteam17.recordhealth.DashboardFragment"
+        android:label="Dashboard"
+        tools:layout="@layout/fragment_dashboard">
+        <action
+            android:id="@+id/action_dashboardFragment_to_welcomeFragment"
+            app:destination="@id/welcome_fragment" />
+    </fragment>
+
+</navigation>
