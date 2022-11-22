@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace 'com.healthteam17.recordhealth'
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.healthteam17.recordhealth"
@@ -24,8 +24,14 @@ android {
         }
     }
     compileOptions {
+        // Flag to enable support for the new language APIs
+//        coreLibraryDesugaringEnabled true
+
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+    buildFeatures {
+        viewBinding true
     }
     kotlinOptions {
         jvmTarget = '1.8'
@@ -33,11 +39,38 @@ android {
 }
 
 dependencies {
-
-    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.annotation:annotation:1.5.0'
+    implementation 'androidx.core:core-ktx:1.9.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
+
+    // Lifecycle libraries
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
+
+    // For Java 8 language features & APIs support
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.0'
+
+    // Google Material Library
     implementation 'com.google.android.material:material:1.7.0'
+
+    // Firebase BoM
+    implementation platform('com.google.firebase:firebase-bom:28.4.2')
+
+    // Firebase Authentication
+    implementation 'com.google.firebase:firebase-auth'
+
+    // Navigation libraries
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
+
+    // Preference lib
+    implementation 'androidx.preference:preference:1.2.0'
+
+    // RecyclerView
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
