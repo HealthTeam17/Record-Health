@@ -1,7 +1,7 @@
 # Record-Health
 "Record Health" app is a hospital record management system which handles patients' data from the period of admission, care prescription,accounts and billing.
 
-###### This is a community project of AAD engineers and ACE engineers bearing a name "Health-Team17".
+##### This is a community project of AAD engineers and ACE engineers bearing a name "Health-Team17".
 
 Team Members roles:
 -------------------
