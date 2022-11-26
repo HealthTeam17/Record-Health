@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
+import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var mNavController: NavController
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,6 +22,19 @@ class MainActivity : AppCompatActivity() {
         mNavController = navHostFragment.navController
         // Set up the action bar for use with the NavController
         setupActionBarWithNavController(this, mNavController)
+
+        // Initialize Firebase Auth
+        auth = FirebaseAuth.getInstance()
+    }
+
+    public override fun onStart() {
+        super.onStart()
+        // Check if user is signed in (non-null) and update UI accordingly.
+        val currentUser = auth.currentUser
+        if(currentUser != null)
+            mNavController.navigate(R.id.dashboard_fragment);
+        else
+            mNavController.navigate(R.id.login_fragment)
     }
 
     /**
