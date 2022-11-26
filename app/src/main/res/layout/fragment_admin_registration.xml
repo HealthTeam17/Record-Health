@@ -7,6 +7,7 @@
     tools:context=".AdminRegistrationFragment">
 
     <ScrollView
+        android:id="@+id/scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="@dimen/active_root_padding"
@@ -123,6 +124,7 @@
                 android:layout_height="wrap_content">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="E-Mail" />
@@ -216,6 +218,7 @@
                 android:layout_height="wrap_content">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_pwd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Password" />
@@ -231,6 +234,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Register"
+        app:layout_constraintTop_toBottomOf="@+id/scroll"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
