@@ -1,46 +1,45 @@
 package com.healthteam17.recordhealth
 
+import android.content.ContentValues.TAG
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.NavController
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
 import com.google.firebase.auth.FirebaseAuth
+import kotlinx.android.synthetic.main.activity_main.*
+
 
 class MainActivity : AppCompatActivity() {
-
-    private lateinit var mNavController: NavController
-    private lateinit var auth: FirebaseAuth
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Retrieve NavController from the NavHostFragment
-        val navHostFragment = supportFragmentManager
-            .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        mNavController = navHostFragment.navController
-        // Set up the action bar for use with the NavController
-        setupActionBarWithNavController(this, mNavController)
+        cardPatient.setOnClickListener{
+            val intent = Intent(this,PatientRegForm::class.java)
+            startActivity(intent)
 
-        // Initialize Firebase Auth
-        auth = FirebaseAuth.getInstance()
+        }
+
     }
 
-    public override fun onStart() {
-        super.onStart()
-        // Check if user is signed in (non-null) and update UI accordingly.
-        val currentUser = auth.currentUser
-        if(currentUser != null)
-            mNavController.navigate(R.id.dashboard_fragment);
-        else
-            mNavController.navigate(R.id.login_fragment)
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_main, menu)
+        return true
     }
 
-    /**
-     * Handle navigation when the user chooses Up from the action bar.
-     */
-    override fun onSupportNavigateUp(): Boolean {
-        return mNavController.navigateUp() || super.onSupportNavigateUp()
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+       if (item.itemId == R.id.mi_logout){
+           Log.i(TAG, "Logout")
+
+           //Logout the user
+           FirebaseAuth.getInstance().signOut()
+
+           val logOUtIntent = Intent(this,Login::class.java)
+           logOUtIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+           startActivity(logOUtIntent)
+       }
+        return super.onOptionsItemSelected(item)
     }
 }
