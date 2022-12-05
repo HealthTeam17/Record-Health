@@ -52,12 +52,12 @@ class PatientRegForm : AppCompatActivity() {
 
 
             val userMap = hashMapOf(
-                "First Name" to fName,
-                "Last Name" to lName,
-                "Email Address" to emails,
-                "Phone NUmber" to pNumber,
-                "Birth Date" to birthDates,
-                "Residence" to residences
+                "firstName" to fName,
+                "lastName" to lName,
+                "emailAddress" to emails,
+                "phoneNumber" to pNumber,
+                "birthDate" to birthDates,
+                "residence" to residences
                 /*"Gender Female" to radioFemaleBtn,
                 "Gender Male" to radioMaleBtn,
                 "Gender Other" to radioOtherBtn*/
